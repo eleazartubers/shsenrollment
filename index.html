@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SNHS Enrollment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/style.css">
+ 
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <!-- JQUERY -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <!-- JQUERY STEP -->
+    <script src="js/jquery.steps.js"></script>
+    <script src="js/main.js"></script>
+        
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <form action="" id="wizard">
+            <!-- SECTION 1 -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                    <img src="images/reg.png" alt="">
+                    </div>
+                    <div class="form-content" >
+                        <div class="form-header">
+                            <h3>Enrollment</h3>
+                        </div>
+                        <p>Personal Information</p>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" placeholder="First Name" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" placeholder="Middle Name" class="form-control" id="middleName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" placeholder="Last Name" class="form-control" id="lastName" required>
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" placeholder="Your Email" class="form-control" id="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" placeholder="Phone Number" class="form-control" id="phoneNumber" required>
+                            </div>
+                            <div class="form-holder">
+                                <div class="form-holder">
+                                    <input type="text" placeholder="Age" class="form-control" id="age" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-holder" style="align-self: flex-end; transform: translateY(6px);">
+                            <div class="checkbox-tick">
+                                <label class="male">
+                                    <input type="radio" name="gender" value="male" required> Male<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="female">
+                                    <input type="radio" name="gender" value="female" required> Female<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div> 
+                        <div class="form-holder" style="align-self: flex-end; transform: translateY(30px);">
+                            <input type="file" id="photoUpload" required>
+                        </div>
+                           
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="images/reg.png" alt="">
+                    </div>
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>Enrollment</h3>
+                        </div>
+                        <p>Personal Information</p>
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <input type="text" placeholder="Address" class="form-control" id="address" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" placeholder="City" class="form-control" id="city" required>
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" placeholder="Province" class="form-control" id="province" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="select">
+                                <div class="form-holder">
+                                    <div class="select-control" id="barangay">Barangay</div>
+                                    <i class="zmdi zmdi-caret-down"></i>
+                                </div>
+                                <ul class="dropdown" data-field-id="barangay" required>
+                                        <li rel="Ampid II">Ampid II</li>
+                                        <li rel="Dulong Bayan I">Dulong Bayan I</li>
+                                        <li rel="Dulong Bayan II">Dulong Bayan II</li>
+                                        <li rel="Guitnang Bayan I">Guitnang Bayan I</li>
+                                        <li rel="Guitnang Bayan II">Guitnang Bayan II</li>
+                                        <li rel="Guinayang">Guinayang</li>
+                                        <li rel="Gulod Malaya">Gulod Malaya</li>
+                                        <li rel="Malanday">Malanday</li>
+                                        <li rel="Maly">Maly</li>
+                                        <li rel="Pintong Bukawe">Pintong Bukawe</li>
+                                        <li rel="Sto. Niño">Sto. Niño</li>
+                                        <li rel="Sta. Ana">Sta. Ana</li>
+                                        <li rel="Silangan">Silangan</li>
+                                </ul>
+                            </div>
+                            <div class="form-holder"></div>
+                            <input type="hidden" id="barangay" required>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- SECTION 3 -->
+        <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="images/reg.png" alt="">
+                    </div>
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>Enrollment</h3>
+                        </div>
+                        <p>Choose Track/Strand</p>
+                        <div class="form-row">
+                            <div class="select">
+                                <div class="form-holder">
+                                    <div class="select-control" id="gradeLevel">Grade Level to Enroll</div>
+                                    <i class="zmdi zmdi-caret-down"></i>
+                                </div>
+                                <ul class="dropdown" data-field-id="gradeLevel" required>
+                                        <li rel="Grade 11">Grade 11</li>
+                                        <li rel="Grade 12">Grade 12</li>
+                                </ul>
+                            </div>
+                            <div class="form-holder"></div>
+                            <input type="hidden" id="gradeLevel" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="select">
+                                <div class="form-holder">
+                                    <div class="select-control" id="trackStrand">Tracks/Strand to Enroll</div>
+                                    <i class="zmdi zmdi-caret-down"></i>
+                                </div>
+                                <ul class="dropdown" data-field-id="trackStrand" required>
+                                        <li rel="ABM">Academic - Accountancy Business Management</li>
+                                        <li rel="STEM">Academic - Science, Technology, Engineering, Mathematics</li>
+                                        <li rel="HUMSS">Academic - Humanities and Social Sciences</li>
+                                        <li rel="GAS">Academic - General Academic Strand</li>
+                                        <li rel="HE">TVL - Home Economics</li>
+                                        <li rel="ICT">TVL - Information Communications Technology</li>
+                                        <li rel="IA">TVL - Industrial Arts</li>
+                                </ul>
+                            </div>
+                            <div class="form-holder"></div>
+                            <input type="hidden" id="trackStrand" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <a href="g11subjects.html" target="_blank">For more information of subjects (Grade 11), click here for the list.</a>
+                            </div>
+                            <div class="form-holder">
+                                <a href="g12subjects.html" target="_blank">For more information of subjects (Grade 12), click here for the list.</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="images/reg.png" alt="">
+                    </div>
+                    <div class="form-content">
+
+                        <div class="form-header">
+                            <h3>Enrollment</h3>
+                        </div>
+                        <p>Confirmation</p>
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <p>By clicking Submit, you agree that all of the information are correct.</p> 
+                            </div>
+                        </div>
+                        <div class="checkbox-circle mt-24">
+                            <label>
+                                <input type="checkbox"> Please accept <a href="#">terms and conditions</a>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </div>
+</body>
+</html>
